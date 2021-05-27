@@ -167,4 +167,28 @@ mysql> select * from employee_payroll;
 3 rows in set (0.00 sec)
 -----------------------------------------------------------------------------------------------------------
 
+UC7: ability to use funtion
 
+mysql> select avg(salary) from employee_payroll where ganfer = 'm' group by genfer;
+ERROR 1054 (42S22): Unknown column 'ganfer' in 'where clause'
+mysql> select avg(salary) from employee_payroll where genfer = 'm' group by genfer;
++-------------+
+| avg(salary) |
++-------------+
+|      200000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> delete from employee_payroll where name= 'Bill';
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+
+| id | name    | genfer | salary | start      |
++----+---------+--------+--------+------------+
+|  2 | terisa  | F      | 300000 | 2020-03-15 |
+|  3 | charlie | M      | 300000 | 2019-06-22 |
++----+---------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------
